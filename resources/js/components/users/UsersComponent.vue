@@ -12,7 +12,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="pb-5">
                 <a href=""
-                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                   class="bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 dark:bg-blue-800 dark:text-gray-300 text-white font-bold py-2 px-4 rounded"
                 >Добавить пользователя
                 </a>
             </div>
@@ -71,16 +71,16 @@
                                             </span>
                                         </td>
                                         <td
-                                            class="flex justify-end px-5 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"
+                                            class="flex justify-end px-5 py-4 whitespace-nowrap text-sm font-bold text-gray-800 dark:text-gray-200"
                                         >
                                             <button type="button"
-                                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                                Save
+                                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 dark:bg-blue-800 dark:text-gray-300 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                                Изменить
                                             </button>
                                             <button
                                                 type="button"
-                                                class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                                Delete
+                                                class="text-sm bg-red-500 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600 dark:text-gray-300 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                                Удалить
                                             </button>
                                         </td>
                                     </tr>
