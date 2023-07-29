@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router"
 import GoalComponent from "../components/goals/GoalComponent.vue"
 import CreateGoal from "../components/goals/CreateGoal.vue"
 import EditGoal from "../components/goals/EditGoal.vue"
+import Users from "../components/users/UsersComponent.vue";
 import Profile from "../components/ui/profile/Profile.vue"
 
 const routes = [
@@ -21,6 +22,11 @@ const routes = [
         name: 'goals.edit',
         component: EditGoal,
         props: true
+    },
+    {
+        path: '/users',
+        name: 'users.index',
+        component: Users
     },
     {
         path: '/user/profile',
