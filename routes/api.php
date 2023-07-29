@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('goals', App\Http\Controllers\Api\GoalController::class);
 Route::apiResource('users', UserController::class);
 Route::get('test/{id}', [UserController::class, 'getRoles']);
+Route::apiResource('roles', \App\Http\Controllers\Api\RolesController::class);
