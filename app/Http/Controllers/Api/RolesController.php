@@ -13,7 +13,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
+        return RoleResource::collection(Role::all());
     }
 
     /**
