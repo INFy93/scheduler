@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->integer('author_id');
             $table->integer('performer_id');
-            $table->date('goal_time');
+            $table->dateTime('goal_time');
             $table->timestamps();
         });
     }
