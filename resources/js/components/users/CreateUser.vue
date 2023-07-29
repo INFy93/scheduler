@@ -112,6 +112,7 @@
                                     >
                                     <div class="mt-1">
                                         <input
+                                            ref="el"
                                             type="text"
                                             name="phone"
                                             id="phone"
@@ -163,5 +164,17 @@
 </template>
 
 <script>
-export default {}
+import { useIMask } from 'vue-imask';
+export default {
+    setup(props) {
+        const { el, masked } = useIMask({
+            mask: '+70000000000',
+            radix: '.',
+        });
+
+        return {
+            el
+        }
+    }
+}
 </script>
