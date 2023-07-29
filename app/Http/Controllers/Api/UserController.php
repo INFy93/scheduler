@@ -51,7 +51,7 @@ class UserController extends Controller
     public function getRoles($id)
     {
        $user = User::with('roles')->where('id', $id)->first();
-       // $user->assignRole('super-user', 'admin');
+       $user->assignRole('super-user', 'admin');
 
         return $user;
     }

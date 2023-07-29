@@ -25,6 +25,7 @@
           <div
             class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"
           >
+              <div v-if="Object.keys(goals).length === 0">Задач еще нет! Нажмите на кнопку сверху, чтобы добавить вашу первую задачу</div>
             <!--Card 1-->
             <div
               v-for="goal in goals"
