@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 class UserController extends Controller
 {
     /**
@@ -19,9 +20,13 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request): UserResource
     {
-        //
+        $user = User::create($request->validated());
+
+        $user->assignRole($request->role);
+
+        return new UserResource($user);
     }
 
     /**

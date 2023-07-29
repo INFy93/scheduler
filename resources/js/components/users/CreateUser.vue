@@ -43,6 +43,7 @@
                                             id="name"
                                             class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                             required
+                                            v-model="userForm.name"
                                         />
                                     </div>
                                 </div>
@@ -60,6 +61,7 @@
                                             id="email"
                                             class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                             required
+                                            v-model="userForm.email"
                                         />
                                     </div>
                                 </div>
@@ -69,17 +71,18 @@
                                 <div class="flex flex-wrap -mx-3 mb-6">
                                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                         <label
-                                            for="pass"
+                                            for="password"
                                             class="block text-sm font-medium text-gray-700"
                                         >Пароль</label
                                         >
                                         <div class="mt-1">
                                             <input
                                                 type="password"
-                                                name="pass"
-                                                id="pass"
+                                                name="password"
+                                                id="password"
                                                 class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                                 required
+                                                v-model="userForm.password"
                                             />
                                         </div>
                                     </div>
@@ -97,6 +100,7 @@
                                                 id="confirm_pass"
                                                 class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                                 required
+                                                v-model="userForm.confirm_pass"
                                             />
                                         </div>
                                     </div>
@@ -112,12 +116,13 @@
                                     >
                                     <div class="mt-1">
                                         <input
-                                            ref="el"
                                             type="text"
                                             name="phone"
                                             id="phone"
                                             class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                             required
+                                            v-maska data-maska="+7##########"
+                                            v-model="userForm.phone"
                                         />
                                     </div>
                                 </div>
@@ -129,10 +134,10 @@
                                     >
                                     <div class="mt-1">
                                         <select
-                                            name="user"
-                                            id="user"
+                                            name="role"
+                                            id="role"
                                             class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-
+                                            v-model="userForm.role"
                                         >
                                             <option
                                             v-for="role in roles"
@@ -169,25 +174,34 @@
 </template>
 
 <script>
-import { useIMask } from 'vue-imask';
+
 import useRoles from "../../composables/roles/roles.js";
-import {onMounted} from "vue";
+import {onMounted, reactive} from "vue";
+import { vMaska } from "maska"
 export default {
+    directives: { maska: vMaska },
     setup(props) {
-        const { el, masked } = useIMask({
-            mask: '+70000000000',
-            radix: '.',
-        });
+
 
         const { roles, getAllRoles } = useRoles();
+
+        const userForm = reactive({
+            'name': '',
+            'email': '',
+            'password': '',
+            'confirm_pass': '',
+            'phone': '',
+            'role': 'user'
+        })
+
 
         onMounted(() => {
             getAllRoles()
         })
 
         return {
-            el,
-            roles
+            roles,
+            userForm
         }
     }
 }
