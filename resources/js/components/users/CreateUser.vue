@@ -134,7 +134,12 @@
                                             class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
 
                                         >
-                                            <option> kek</option>
+                                            <option
+                                            v-for="role in roles"
+                                            :key="role.id"
+                                            :value="role.name"
+                                            selected
+                                            > {{ role.name }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -165,6 +170,8 @@
 
 <script>
 import { useIMask } from 'vue-imask';
+import useRoles from "../../composables/roles/roles.js";
+import {onMounted} from "vue";
 export default {
     setup(props) {
         const { el, masked } = useIMask({
@@ -172,8 +179,15 @@ export default {
             radix: '.',
         });
 
+        const { roles, getAllRoles } = useRoles();
+
+        onMounted(() => {
+            getAllRoles()
+        })
+
         return {
-            el
+            el,
+            roles
         }
     }
 }
